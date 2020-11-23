@@ -372,9 +372,6 @@ This represents minimal configuration of the Chart, this can be disabled in favo
 | `nginx-ingress.extraArgs.enable-ssl-passthrough`                | Enable SSL Passthrough   | `true` |
 
 
-## Disclaimer
-This repository is currently in Beta.
-
 ## License
 Copyright (c) 2019 CA, A Broadcom Company. All rights reserved.
 
