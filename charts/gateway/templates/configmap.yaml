@@ -33,7 +33,7 @@ data:
                 {{ if .Values.hazelcast.external }}
                 <address>{{ required "Please set an external Hazelcast URL in values.yaml" .Values.hazelcast.url }}</address>
                 {{ else }}
-                 <address>{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.hazelcast.service.port }}</address>
+                 <address>{{ .Release.Name }}-hazelcast.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.hazelcast.service.port }}</address>
                 {{ end }}
             </cluster-members>
             <connection-attempt-limit>10</connection-attempt-limit>
@@ -47,7 +47,7 @@ data:
 
 {{ if .Values.additionalEnv }}
 {{- range $key, $val := .Values.additionalEnv }}
-  {{ $key }}: "{{ $val }}"
+  {{ $key }}: {{ $val | quote }}
 {{- end }}
 {{ end }}
 
